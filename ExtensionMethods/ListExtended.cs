@@ -146,8 +146,55 @@ namespace ExtensionMethods
         }
         public static List<int> Magnitude(this List<int> list)
         {
-            return list.Distinct().ToList(); //nevim
+            List<int> result = new List<int>();
+            foreach (int i in list)
+            {
+                int num = i;
+                int magnitude = 0;
+
+                while (num > 0)
+                {
+                    magnitude++;
+                    num = num / 10;
+                }
+                result.Add(magnitude);
+            }
+            return result;
         }
+
+        public static List<string> Hexadecimal(this List<int> list)
+        {
+            List<string> result = new List<string>();
+            foreach (int x in list)
+            {
+                result.Add(x.AsHex());
+            }
+            return result;
+        }
+
+        public static List<int> Condition(this List<int> list, Func<int, bool> condition)
+        {
+            List<int> result = new List<int>();
+            foreach (int x in list)
+            {
+                if (condition(x))
+                {
+                    result.Add(x);
+                }
+            }
+            return result;
+        }
+
+        public static List<int> Process(this List<int> list, Func<int, int> proc)
+        {
+            List<int> result = new List<int>();
+            foreach (int x in list)
+            {
+                result.Add(proc(x));
+            }
+            return result;
+        }
+
 
         public static string AsHex(this int num)
         {

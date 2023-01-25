@@ -36,3 +36,19 @@ foreach (string i in _extensions.SuitableAsPassword())
 int jafaktnevim = 255;
 
 Console.WriteLine(jafaktnevim.AsHex());
+
+List<int> ints= new List<int>();
+ints.Add(jafaktnevim);
+ints.Add(54);
+ints.Add(12);
+ints.Add(27);
+
+foreach (int i in (ints.Process(x => (x * 2))))
+{
+Console.WriteLine(i);
+}
+
+foreach (int i in (ints.Condition(x => x > 27)))
+{
+    Console.WriteLine(i);
+}
