@@ -8,6 +8,29 @@ namespace ExtensionMethods
 {
     public static class ListExtended
     {
+        public static bool IsCountEven<T>(this List<T> list) {
+            return (list.Count % 2 == 0);
+        }
+
+        public static List<T> Even<T>(this List<T> list)
+        {
+            List<T> result = new List<T>();
+            for (int i = 0; i < list.Count; i++) {
+                if (i % 2 == 0) {
+                    result.Add(list[i]);
+                }
+            }
+            return result;
+        }
+        public static List<T> Selection<T>(this List<T> list, int x, int y)
+        {
+            List<T> result = new List<T>();
+            for (int i = x; i < y; i++)
+            {
+                result.Add(list[i]);
+            }
+            return result;
+        }
         public static List<string> ShorterThan(this List<string> list, int threshold) {
             List<string> result = new List<string>();
             foreach (string s in list) {
@@ -104,5 +127,38 @@ namespace ExtensionMethods
             }
             return result;
         }
+
+        public static List<int> Divisible(this List<int> list, int x)
+        {
+            List<int> result = new List<int>();
+            foreach (int i in list) {
+                if (i % x == 0) {
+                    result.Add(i);
+                }
+            }
+            return result;
+        }
+        public static List<int> Magnitude(this List<int> list)
+        {
+            return list.Distinct().ToList(); //nevim
+        }
+        public static List<int> Hexadecimal(this List<int> list)
+        {
+            List<int> result = new List<int>();
+            foreach (int x in list)
+            {
+
+            }
+        }
+
+        public static List<int> Condition(this List<int> list)
+        {
+            List<int> result = new List<int>();
+            foreach (int x in list)
+            {
+
+            }
+        }
+
     }
 }
