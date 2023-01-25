@@ -64,5 +64,45 @@ namespace ExtensionMethods
             }
             return result;
         }
+
+        public static List<string> Upper(this List<string> list)
+        {
+            List<string> result = new List<string>();
+            foreach (string s in list)
+            {
+                result.Add(s.ToUpper());
+            }
+            return result;
+        }
+        public static List<string> SuitableAsPassword(this List<string> list)
+        {
+            List<string> result = new List<string>();
+            foreach (string s in list)
+            {
+                bool ContainsUpper = false;
+                bool ContainsLower = false;
+                bool ContainsDigit = false;
+                foreach (char x in s)
+                {
+                    if (char.IsUpper(x))
+                    {
+                        ContainsUpper = true;
+                    }
+                    if (char.IsLower(x))
+                    {
+                        ContainsLower = true;
+                    }
+                    if (char.IsDigit(x))
+                    {
+                        ContainsDigit = true;
+                    }
+                }
+                if (ContainsUpper & ContainsLower & ContainsDigit & s.Length <= 16 & s.Length >= 8)
+                {
+                    result.Add(s);
+                }
+            }
+            return result;
+        }
     }
 }
