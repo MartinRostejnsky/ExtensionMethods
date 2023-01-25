@@ -31,6 +31,12 @@ namespace ExtensionMethods
             }
             return result;
         }
+
+        public static T RandomItem<T>(this List<T> list)
+        {
+            int num = Random.Shared.Next(0, list.Count);
+            return list[num];
+        }
         public static List<string> ShorterThan(this List<string> list, int threshold) {
             List<string> result = new List<string>();
             foreach (string s in list) {
