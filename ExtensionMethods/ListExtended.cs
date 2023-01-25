@@ -148,22 +148,10 @@ namespace ExtensionMethods
         {
             return list.Distinct().ToList(); //nevim
         }
-        public static List<int> Hexadecimal(this List<int> list)
+
+        public static string AsHex(this int num)
         {
-            List<int> result = new List<int>();
-            foreach (int x in list)
-            {
-
-            }
-        }
-
-        public static List<int> Condition(this List<int> list)
-        {
-            List<int> result = new List<int>();
-            foreach (int x in list)
-            {
-
-            }
+            return num.ToString("X");
         }
 
     }

@@ -33,3 +33,6 @@ foreach (string i in _extensions.SuitableAsPassword())
 {
     Console.WriteLine(i);
 }
+int jafaktnevim = 255;
+
+Console.WriteLine(jafaktnevim.AsHex());
